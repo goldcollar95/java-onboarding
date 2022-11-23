@@ -15,9 +15,13 @@ class Problem1 {
 
     }
 
-    public boolean checkValidator(List<Integer> bookPage){
-
-        return true;
+    public boolean checkValidator(int bookPage){
+        for(int index = 0; index < bookPage; index++){
+            if(bookPage > 0 && bookPage < 400){
+            }
+            return true;
+        }
+        return false;
     }
 
 
