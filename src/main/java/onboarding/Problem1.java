@@ -14,4 +14,11 @@ class Problem1 {
         return answer;
 
     }
+
+    public boolean checkValidator(List<Integer> bookPage){
+
+        return true;
+    }
+
+
 }
