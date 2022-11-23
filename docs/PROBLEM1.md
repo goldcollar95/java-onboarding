@@ -26,15 +26,9 @@
 
 
 ## 기능 구현 목록 및 과정
- - boolean checkPage(List<Integer> list) >> 페이지 유효성 범위 확인
- - public static int maxSum(List<Integer> list) >> 왼쪽, 오른쪽을 받아서 각 자리를 더하고, 더한 값 중 최댓값 return
- - public static int multiplication(List<Integer> list) >> 왼쪽, 오른쪽을 받아서 각 자리를 곱하고, 곱한 값 중 최댓값 return
- - public static int pobiMax(List<Integer> list) >> 포비의 최댓값 설정
- - public static int crongMax(List<Integer> list) >> 크롱의 최댓값 설정
-
-    * 진행과정
-      * 순서대로 조건문으로 1,2,0,-1에 해당하는 값을 리턴을 해주었으며
-     혹시 첫번째와 마지막페이지의 순서가 나오지않는다면 true를 boolean참조형에 넣고 범위를 확인하려했습니다. 
-      * 그 이후로 차례대로 더한 값, 곱한 값을 차례대로 최댓값을 나타내기 위해 최대값을 만들어주는 형식으로 접근했습니다.
-      * left = left/10 복합대입연산자를 대입해 페이지의명시
-      * right = right/10 복합대입연산자를 대입해 페이지의명시
+- [] 1쪽부터 400페이지 까지 만드는 함수 
+- [] int 타입의 1, 2, 0, -1 리턴할수 있도록 만들어주는 함수가 필요하다.
+-[] 시작 면과 마지막면이 나오지 않도록 만든다.
+-[] 포비와 크롱의 점수를 비교해 높은 사람을 가려내는 함수를 만든다. pobimax, crongmax 
+-[] bolean 타입으로 점수를 비교해 높은 수의 인원이 return true를 받게끔 구현한다. - 2,3?
+- [] 더하기 분리 곱하기 분리하여 각각 가장 큰 수를 구한다. - 2, 3
