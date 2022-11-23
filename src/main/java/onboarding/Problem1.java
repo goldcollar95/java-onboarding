@@ -24,8 +24,14 @@ class Problem1 {
         return false;
     }
 
-    public boolean checkFrontBack(){
-        return true;
+    public boolean checkFrontBack(int bookPage){
+
+        for(int index = 0 ; index < bookPage; index++){
+            if(bookPage == 1 && bookPage == 400){
+
+            }
+        }
+        return false;
     }
 
 }
