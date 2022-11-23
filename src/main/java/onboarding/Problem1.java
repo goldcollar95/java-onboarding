@@ -24,5 +24,8 @@ class Problem1 {
         return false;
     }
 
+    public boolean checkFrontBack(){
+        return true;
+    }
 
 }
