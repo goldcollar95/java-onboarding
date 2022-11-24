@@ -67,4 +67,12 @@ class Problem1 {
         }
         return 0;
     }
+
+    public int addMax(List<Integer> pobi, List<Integer> crong){
+        return 0;
+    }
+
+    public int MultipleMax(List<Integer> pobi, List<Integer> crong){
+        return 0;
+    }
 }
