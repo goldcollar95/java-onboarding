@@ -103,6 +103,73 @@ class Problem1 {
     }
 
     public int MultipleMax(List<Integer> pobi, List<Integer> crong){
-        return 0;
+
+        int pobileft = pobi.get(0);
+        int pobiright = pobi.get(1);
+
+        int crongleft = crong.get(0);
+        int crongright = crong.get(1);
+
+        int leftMultiple = 0;
+        int rightMultiple = 0;
+
+        for(int i = 0; i < pobileft; i++){
+            int hen = (i % 1000) / 100;
+            int ten = (i % 100) / 10;
+            int one = i % 10;
+
+            if(hen != 0){
+                leftMultiple = ten * one;
+            }
+            else{
+                leftMultiple = hen * ten * one;
+            }
+        }
+
+        for(int j = 0; j < pobiright; j++){
+            int hen = (j % 1000) / 100;
+            int ten = (j % 100) / 10;
+            int one = j % 10;
+
+            if(hen != 0){
+                rightMultiple = ten * one;
+            }
+            else{
+                rightMultiple = hen * ten * one;
+            }
+        }
+
+        for(int i = 0; i < crongleft; i++){
+            int hen = (i % 1000) / 100;
+            int ten = (i % 100) / 10;
+            int one = i % 10;
+
+            if(hen != 0){
+                rightMultiple =  ten * one;
+            }
+            else{
+                rightMultiple = hen * ten * one;
+            }
+        }
+
+        for(int j = 0; j < crongright; j++){
+            int hen = (j % 1000) / 100;
+            int ten = (j % 100) / 10;
+            int one = j % 10;
+
+            if(hen != 0){
+                rightMultiple = ten * one;
+            }
+            else{
+                rightMultiple = hen * ten * one;
+            }
+        }
+
+        if(leftMultiple > rightMultiple){
+            return leftMultiple;
+        }else{
+            return rightMultiple;
+        }
+
     }
 }
