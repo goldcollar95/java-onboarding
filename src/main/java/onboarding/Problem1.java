@@ -5,9 +5,6 @@ import java.util.List;
 
 class Problem1 {
 
-    private static final int[] left_page = {};
-    private final int[] right_page = {};
-    private final int[] random_page = {};
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
         int answer = Integer.MAX_VALUE;
@@ -69,7 +66,40 @@ class Problem1 {
     }
 
     public int addMax(List<Integer> pobi, List<Integer> crong){
-        return 0;
+
+        int pobileft = pobi.get(0);
+        int pobiright = pobi.get(1);
+
+        int crongleft = crong.get(0);
+        int crongright = crong.get(1);
+
+        int leftSum = 0;
+        int rightSum = 0;
+
+        while( pobileft != 0){
+            leftSum += pobileft % 10;
+            pobileft /= 10;
+        }
+        while( pobiright != 0){
+            rightSum += pobiright % 10;
+            pobiright /= 10;
+        }
+
+        while( crongleft != 0){
+            leftSum += crongleft % 10;
+            crongleft /= 10;
+        }
+
+        while( crongright != 0){
+            rightSum += crongright % 10;
+            crongright /= 10;
+        }
+
+        if(leftSum > rightSum){
+            return leftSum;
+        }else{
+            return rightSum;
+        }
     }
 
     public int MultipleMax(List<Integer> pobi, List<Integer> crong){
