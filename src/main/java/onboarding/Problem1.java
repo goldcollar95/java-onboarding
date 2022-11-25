@@ -1,6 +1,8 @@
 package onboarding;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class Problem1 {
@@ -8,16 +10,45 @@ class Problem1 {
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
         int answer = Integer.MAX_VALUE;
+
+
+        List<Integer> pobiMax = new ArrayList<>();
+        pobiMax.add(addMax(pobi));   // 70 vs 72 = 72
+        pobiMax.add(MultipleMax(pobi));  // 7*2 = 14 / 8*2
+
+        List<Integer>  crongMax = new ArrayList<>();
+        crongMax.add(addMax(crong));
+        crongMax.add(MultipleMax(crong));
+
+
+        if(checkValidator(pobi) || checkValidator(crong)) return -1;
+        if(Collections.max(pobiMax) > Collections.max(crongMax))  return 1;
+        if(Collections.max(pobiMax) < Collections.max(crongMax))  return 2;
+        if(Collections.max(pobiMax) == Collections.max(crongMax))  return 0;
+
+
+
         return answer;
 
     }
 
-    public boolean checkValidator(int bookPage){
-        for(int index = 0; index < bookPage; index++){
-            if(bookPage > 0 && bookPage < 400){
-            }
+    public static boolean checkValidator(List<Integer> bookPage) {
+
+
+       /* for(int index = 0; index < bookPage.size(); index++){
+            if(bookPage.get(index) > 0 && bookPage.get(index) < 400)
+
             return true;
         }
+        return false;
+    }*/
+
+        int left = bookPage.get(0);
+        int right = bookPage.get(1);
+
+        if (left == 1 || right == 400 || right - left != 1)
+            return true;
+
         return false;
     }
 
@@ -31,68 +62,49 @@ class Problem1 {
         return false;
     }
 
-    public int pobiMax(List<Integer> pobiMax){
-        int pobileft = 0;
-        int pobiright = 0;
+    public static int pobiMax(List<Integer> list) {
+        int pobiLeft = list.get(0);
+        int pobiright = list.get(1);
 
-        for(int index = 0; index < pobiMax.size(); index++){
-            if(pobileft == pobiMax.get(0) && pobiright == pobiMax.get(1)){
-            }
-            if(pobileft > pobiright){
-                return pobileft;
-            }
-            if(pobileft < pobiright){
-                return pobiright;
-            }
-        }
-        return 0;
+        if (pobiLeft > pobiright) {
+            return pobiLeft;
+        } else
+            return pobiright;
     }
 
-    public int crongMax(List<Integer> crongMax){
-        int crongleft = 0;
-        int crongright = 0;
+    public static int crongMax(List<Integer> list) {
+        int crongLeft = list.get(0);
+        int crongright = list.get(1);
 
-        for(int index = 0; index < crongMax.size(); index++){
-            if(crongleft == crongMax.get(0) && crongright == crongMax.get(1)){
-            }
-            if(crongleft > crongright){
-                return crongleft;
-            }
-            if(crongleft < crongright){
-                return crongright;
-            }
-        }
-        return 0;
+        if (crongLeft > crongright) {
+            return crongLeft;
+        } else
+            return crongright;
     }
 
-    public int addMax(List<Integer> pobi, List<Integer> crong){
 
-        int pobileft = pobi.get(0);
-        int pobiright = pobi.get(1);
+    public static int addMax(List<Integer> Twolist){
 
-        int crongleft = crong.get(0);
-        int crongright = crong.get(1);
+        List<Integer> directionAll = new ArrayList<>();
+
+
+        int left = Twolist.get(0);
+        int right = Twolist.get(1);
+
 
         int leftSum = 0;
         int rightSum = 0;
 
-        while( pobileft != 0){
-            leftSum += pobileft % 10;
-            pobileft /= 10;
-        }
-        while( pobiright != 0){
-            rightSum += pobiright % 10;
-            pobiright /= 10;
-        }
+        int crongleftSum = 0;
+        int crongrightSum = 0;
 
-        while( crongleft != 0){
-            leftSum += crongleft % 10;
-            crongleft /= 10;
+        while( left != 0){
+            leftSum += left % 10;
+            left /= 10;
         }
-
-        while( crongright != 0){
-            rightSum += crongright % 10;
-            crongright /= 10;
+        while( right != 0){
+            rightSum += right % 10;
+            right /= 10;
         }
 
         if(leftSum > rightSum){
@@ -102,74 +114,48 @@ class Problem1 {
         }
     }
 
-    public int MultipleMax(List<Integer> pobi, List<Integer> crong){
+    public static int MultipleMax(List<Integer> Twolist){
+        int hen = 0;
+        int ten = 0;
+        int one = 0;
 
-        int pobileft = pobi.get(0);
-        int pobiright = pobi.get(1);
-
-        int crongleft = crong.get(0);
-        int crongright = crong.get(1);
-
+        List<Integer> directionAll = new ArrayList<>();
+        int left = Twolist.get(0); //98
+        int right = Twolist.get(1);    //97
         int leftMultiple = 0;
         int rightMultiple = 0;
 
-        for(int i = 0; i < pobileft; i++){
-            int hen = (i % 1000) / 100;
-            int ten = (i % 100) / 10;
-            int one = i % 10;
+        for(int index = 0; index < left; index++) {
+            hen = (index % 1000) / 100;
+            ten = (index % 100) / 10;
+            one = index % 10;
 
-            if(hen != 0){
+            if (hen == 0) {
                 leftMultiple = ten * one;
-            }
-            else{
+            } else {
                 leftMultiple = hen * ten * one;
             }
+
         }
+        for(int second = 0; second < right; second++) {
+            hen = (second % 1000) / 100;
+            ten = (second % 100) / 10;
+            one = second % 10;
 
-        for(int j = 0; j < pobiright; j++){
-            int hen = (j % 1000) / 100;
-            int ten = (j % 100) / 10;
-            int one = j % 10;
-
-            if(hen != 0){
+            if (hen == 0) {
                 rightMultiple = ten * one;
-            }
-            else{
+            } else {
                 rightMultiple = hen * ten * one;
             }
+
         }
-
-        for(int i = 0; i < crongleft; i++){
-            int hen = (i % 1000) / 100;
-            int ten = (i % 100) / 10;
-            int one = i % 10;
-
-            if(hen != 0){
-                rightMultiple =  ten * one;
-            }
-            else{
-                rightMultiple = hen * ten * one;
-            }
-        }
-
-        for(int j = 0; j < crongright; j++){
-            int hen = (j % 1000) / 100;
-            int ten = (j % 100) / 10;
-            int one = j % 10;
-
-            if(hen != 0){
-                rightMultiple = ten * one;
-            }
-            else{
-                rightMultiple = hen * ten * one;
-            }
-        }
-
         if(leftMultiple > rightMultiple){
             return leftMultiple;
         }else{
             return rightMultiple;
         }
+
+
 
     }
 }
