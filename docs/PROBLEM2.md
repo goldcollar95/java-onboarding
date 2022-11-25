@@ -24,8 +24,4 @@
 
 
 ## 기능 구현 목록 및 과정
-- Stack<Character> stack = new Stack<>(); >> Stack자료형 구조를 이용하여 pop과 push의 접근
-
-  * 진행과정
-    * 향상된 for문을 이용(for (타입형 변수) : 변수
-    * toCharArray로 Char문자형 반복문으로 돌수있게 접근
+- [ ] 중복된 문자가 나왔을때 처리해줄수 있는 함수를 만들어 줄 수 있다.
