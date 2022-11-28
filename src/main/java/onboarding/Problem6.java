@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 public class Problem6 {
     public static List<String> solution(List<List<String>> forms) {
 //        List<String> answer = List.of("answer");
-
-        HashSet<String> set = new HashSet<>(); //중복방지
-        Map<String, String> map = new HashMap<>();  //닉네임 , 이메일 주소
+// 정확하게 구현할 수 있을 때 까지 한다.
+        HashSet<String> set = new HashSet<>();
+        Map<String, String> map = new HashMap<>();
 
         for(int i = 0; i < forms.size(); i++){
             String email = forms.get(i).get(0);
@@ -21,7 +21,7 @@ public class Problem6 {
                 String key = name.substring(j, j+2);
 
                 if(map.containsKey(key)){
-                    set.add(map.get(key));
+                    set.add(map.get(key));      //중복을 허락하지않고 정렬이 필요없는 경우 HashSet을 이용한다.
                     set.add(email);
                 }else{
                     map.put(key, email);
